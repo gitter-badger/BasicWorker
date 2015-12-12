@@ -1,6 +1,5 @@
 #include "cache_manager.h"
 
-#include <iostream>
 
 cache_manager::cache_manager(std::string caching_dir)
 {
@@ -10,8 +9,7 @@ cache_manager::cache_manager(std::string caching_dir)
 		if(!fs::is_directory(cache_path)) {
 			fs::create_directories(cache_path);
 		}
-	}
-	catch (fs::filesystem_error &e) {
+	} catch (fs::filesystem_error &e) {
 		throw fm_create_directory_error("Cannot create directory " + caching_dir + e.what());
 	}
 
@@ -25,8 +23,7 @@ void cache_manager::get_file(std::string src_name, std::string dst_path)
 
 	try {
 		fs::copy_file(source_file, destination_file, fs::copy_option::overwrite_if_exists);
-	}
-	catch (fs::filesystem_error &e) {
+	} catch (fs::filesystem_error &e) {
 		throw fm_copy_error(std::string("Error copying file: ") + e.what());
 	}
 }
@@ -38,8 +35,7 @@ void cache_manager::put_file(std::string name)
 
 	try {
 		fs::copy_file(source_file, destination_file, fs::copy_option::overwrite_if_exists);
-	}
-	catch (fs::filesystem_error &e) {
+	} catch (fs::filesystem_error &e) {
 		throw fm_copy_error(std::string("Error copying file: ") + e.what());
 	}
 }

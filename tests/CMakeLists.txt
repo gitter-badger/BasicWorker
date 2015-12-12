@@ -12,7 +12,7 @@ include_directories(${LIBS_DIR}/googlemock/include)
 add_executable(run_tests
         broker_connection.cpp
         ${SRC_DIR}/worker_config.cpp
-        worker_config.cpp)
+        worker_config.cpp
         cache_manager.cpp
         ${FILEMAN_DIR}/cache_manager.cpp)
 
