@@ -68,5 +68,25 @@ public:
 	virtual ~fm_create_directory_error() {}
 };
 
+/**
+ * Exception for failed file creation.
+ */
+class fm_create_file_error : public fm_exception {
+public:
+	fm_create_file_error() : fm_exception("Cannot create file.") {}
+	fm_create_file_error(std::string what) : fm_exception(what) {}
+	virtual ~fm_create_file_error() {}
+};
+
+/**
+ * Exception for fetch file error..
+ */
+class fm_connection_error : public fm_exception {
+public:
+	fm_connection_error() : fm_exception("Cannot access file on remote server.") {}
+	fm_connection_error(std::string what) : fm_exception(what) {}
+	virtual ~fm_connection_error() {}
+};
+
 
 #endif //CODEX_WORKER_FILE_MANAGER_BASE_H
